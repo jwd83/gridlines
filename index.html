@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Gridlines Studio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Unbounded:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="hero">
+        <div>
+          <p class="eyebrow">Gridline overlay</p>
+          <h1>Gridlines on any image</h1>
+          <p class="lede">
+            Upload an image, set rows, columns, and line thickness, then save a
+            clean export.
+          </p>
+        </div>
+        <div class="badge">PNG export</div>
+      </header>
+
+      <main class="layout">
+        <section class="panel">
+          <div class="panel__section">
+            <label class="field">
+              <span class="field__label">Image file</span>
+              <input id="imageInput" type="file" accept="image/*" />
+            </label>
+            <p class="hint">
+              Best results use the original image size. Large files take longer
+              to export.
+            </p>
+          </div>
+
+          <div class="panel__section grid">
+            <label class="field">
+              <span class="field__label">Rows</span>
+              <input id="rowsInput" type="number" min="1" step="1" value="3" />
+            </label>
+            <label class="field">
+              <span class="field__label">Columns</span>
+              <input id="colsInput" type="number" min="1" step="1" value="3" />
+            </label>
+            <label class="field">
+              <span class="field__label">Thickness (px)</span>
+              <input
+                id="thicknessInput"
+                type="number"
+                min="1"
+                step="1"
+                value="2"
+              />
+            </label>
+          </div>
+
+          <div class="panel__section grid">
+            <label class="field">
+              <span class="field__label">Grid color</span>
+              <input id="colorInput" type="color" value="#ffffff" />
+            </label>
+            <label class="field">
+              <span class="field__label">Opacity</span>
+              <input
+                id="opacityInput"
+                type="range"
+                min="0.1"
+                max="1"
+                step="0.05"
+                value="0.7"
+              />
+            </label>
+            <label class="field field--toggle">
+              <span class="field__label">Cell numbers</span>
+              <input id="numbersToggle" type="checkbox" />
+            </label>
+          </div>
+
+          <div class="panel__section meta">
+            <div>
+              <p class="meta__label">File</p>
+              <p id="fileMeta" class="meta__value">No image loaded</p>
+            </div>
+            <div>
+              <p class="meta__label">Export size</p>
+              <p id="sizeMeta" class="meta__value">--</p>
+            </div>
+          </div>
+
+          <div class="panel__section actions">
+            <button id="downloadBtn" class="btn" disabled>Save image</button>
+            <button id="resetBtn" class="btn btn--ghost" type="button">
+              Reset settings
+            </button>
+          </div>
+        </section>
+
+        <section class="canvas-wrap">
+          <div class="canvas-shell">
+            <div id="emptyState" class="empty">
+              <p class="empty__title">Upload or drop an image</p>
+              <p class="empty__body">
+                Your grid preview will appear here and stays editable.
+              </p>
+            </div>
+            <div id="dropHint" class="drop-hint">
+              <p>Drop image to upload</p>
+            </div>
+            <canvas id="previewCanvas"></canvas>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
